@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { FiMenu } from 'react-icons/fi';
 import { useTheme } from '@/context/ThemeContext';
+import BrandLogo from '@/components/common/BrandLogo';
 
 const navItems = [
   ['Home', '/'],
@@ -17,8 +18,8 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-30 border-b border-slate-200/80 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
       <div className="page-shell flex items-center justify-between py-4">
-        <Link to="/" className="text-lg font-semibold tracking-tight text-slate-900 dark:text-white">
-          Shree Ashaa Reality
+        <Link to="/" className="flex items-center gap-3">
+          <BrandLogo variant="full" className="h-9 w-auto sm:h-10" />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">

@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { FiGrid, FiUsers, FiBriefcase, FiLayers, FiSettings, FiBookOpen, FiBarChart2, FiUser } from 'react-icons/fi';
+import BrandLogo from '@/components/common/BrandLogo';
 
 const navItems = [
   { label: 'Dashboard', path: '/', icon: FiGrid },
@@ -17,10 +18,8 @@ const AdminSidebar = () => {
   return (
     <aside className="hidden w-72 shrink-0 border-r border-slate-200 bg-white/90 px-4 py-6 backdrop-blur lg:block dark:border-slate-800 dark:bg-slate-950/90">
       <div className="mb-8 px-2">
-        <h1 className="text-lg font-semibold tracking-tight text-slate-900 dark:text-white">
-          Shree Ashaa Reality
-        </h1>
-        <p className="text-sm text-slate-500 dark:text-slate-400">Administration</p>
+        <BrandLogo variant="full" className="h-11 w-auto" />
+        <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Administration</p>
       </div>
 
       <nav className="space-y-1">

@@ -1,6 +1,7 @@
 import { FiMoon, FiSun, FiLogOut } from 'react-icons/fi';
 import { useTheme } from '@/context/ThemeContext';
 import { useAuth } from '@/context/AuthContext';
+import BrandLogo from '@/components/common/BrandLogo';
 
 const AdminTopbar = () => {
   const { isDark, toggleTheme } = useTheme();
@@ -9,11 +10,14 @@ const AdminTopbar = () => {
   return (
     <header className="border-b border-slate-200 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
       <div className="admin-shell flex items-center justify-between py-4">
-        <div>
-          <p className="text-sm text-slate-500 dark:text-slate-400">Dashboard</p>
-          <h2 className="text-xl font-semibold tracking-tight text-slate-900 dark:text-white">
-            Control Center
-          </h2>
+        <div className="flex items-center gap-3">
+          <BrandLogo variant="icon" className="h-10 w-10" />
+          <div>
+            <p className="text-sm text-slate-500 dark:text-slate-400">Dashboard</p>
+            <h2 className="text-xl font-semibold tracking-tight text-slate-900 dark:text-white">
+              Control Center
+            </h2>
+          </div>
         </div>
 
         <div className="flex items-center gap-2">

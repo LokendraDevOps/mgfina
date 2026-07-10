@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520" role="img" aria-label="MGFINA Fincare Services LLP logo">
+  <defs>
+    <linearGradient id="brandBlue" x1="80" y1="96" x2="220" y2="428" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#40d6ff"/>
+      <stop offset="100%" stop-color="#2f63ff"/>
+    </linearGradient>
+    <linearGradient id="brandPurple" x1="216" y1="96" x2="416" y2="408" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#9e2cff"/>
+      <stop offset="100%" stop-color="#ff25e7"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <path fill="url(#brandBlue)" fill-rule="evenodd" d="M92 120L184 170L184 418L92 438ZM118 172L156 192L156 390L118 398Z"/>
+    <path fill="url(#brandPurple)" fill-rule="evenodd" d="M228 92C302 92 366 148 366 224C366 294 314 352 244 363V405H182V304C182 260 202 214 236 184C270 154 310 136 346 136V92H228ZM322 236C322 195 290 162 248 162C210 162 180 190 170 226H132C145 160 194 116 254 116C322 116 374 168 374 236C374 305 319 360 250 360C244 360 238 360 232 359V323C238 324 244 324 250 324C292 324 322 294 322 236Z"/>
+  </g>
+  <g transform="translate(410 248)">
+    <text x="0" y="0" fill="#0b1020" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="58" font-weight="700" letter-spacing="0.5">MGFINA</text>
+    <text x="250" y="0" fill="#0b1020" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="52" font-weight="400" letter-spacing="0.1">Fincare Services LLP</text>
+  </g>
+</svg>
