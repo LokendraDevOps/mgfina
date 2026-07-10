@@ -138,15 +138,6 @@ const Login = () => {
                 <FiArrowRight />
               </button>
             </form>
-
-            <div className="mt-8 rounded-3xl bg-slate-50 p-5">
-              <p className="text-sm font-semibold text-slate-700">Demo access</p>
-              <div className="mt-3 space-y-1 text-sm text-slate-600">
-                <p>Email: Superloki</p>
-                <p>Password: Loki@321</p>
-                <p>Role: Superadmin</p>
-              </div>
-            </div>
           </section>
         </div>
       </div>
