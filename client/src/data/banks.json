@@ -1,0 +1,8 @@
+[
+ {"name":"HDFC Bank","short":"HDFC","rating":4.8,"rate":10.5,"fee":"1.5%","tenure":"5 years","products":["Personal Loan","Home Loan","Credit Card"],"benefit":"Fast digital processing"},
+ {"name":"ICICI Bank","short":"ICICI","rating":4.7,"rate":10.65,"fee":"2%","tenure":"6 years","products":["Personal Loan","Car Loan","Business Loan"],"benefit":"Flexible repayment choices"},
+ {"name":"Axis Bank","short":"AXIS","rating":4.6,"rate":10.49,"fee":"1.75%","tenure":"5 years","products":["Personal Loan","Home Loan","Credit Card"],"benefit":"Quick eligibility checks"},
+ {"name":"State Bank of India","short":"SBI","rating":4.8,"rate":8.35,"fee":"0.5%","tenure":"30 years","products":["Home Loan","Education Loan","Gold Loan"],"benefit":"Extensive national network"},
+ {"name":"Kotak Mahindra Bank","short":"KOTAK","rating":4.5,"rate":10.99,"fee":"2%","tenure":"5 years","products":["Personal Loan","Business Loan","Credit Card"],"benefit":"Paper-light onboarding"},
+ {"name":"Bajaj Finserv","short":"BAJAJ","rating":4.4,"rate":11.0,"fee":"Up to 3%","tenure":"8 years","products":["Personal Loan","Business Loan","Loan Against Property"],"benefit":"High-value loan options"}
+]

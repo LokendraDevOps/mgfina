@@ -5,14 +5,7 @@ import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa6';
 import BrandLogo from '@/components/common/BrandLogo';
 import Button from '@/components/ui/Button';
 
-const navItems = [
-  ['Home', '#home'],
-  ['About', '#why'],
-  ['Loan Products', '#loan-products'],
-  ['Calculators', '#calculators'],
-  ['Blogs', '#blogs'],
-  ['Contact', '#contact']
-];
+const navItems = [['Home', '/'], ['Loans', '/loans'], ['Compare', '/compare'], ['Calculators', '/emi-calculator'], ['Blogs', '/blogs'], ['Contact', '/contact']];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -58,18 +51,18 @@ const Navbar = () => {
 
         <nav className="hidden items-center gap-1 rounded-full border border-slate-200 bg-white px-2 py-2 shadow-sm lg:flex">
           {navItems.map(([label, path]) => (
-            <a
+            <Link
               key={path}
-              href={path}
+              to={path}
               className="rounded-full px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
             >
               {label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button as="a" href="#apply" className="hidden sm:inline-flex">
+          <Button as={Link} to="/apply" className="hidden sm:inline-flex">
             Apply Now
           </Button>
           <button
@@ -88,17 +81,17 @@ const Navbar = () => {
           <div className="page-shell flex flex-col gap-4 py-4">
             <nav className="grid gap-2">
               {navItems.map(([label, path]) => (
-                <a
+                <Link
                   key={path}
-                  href={path}
+                  to={path}
                   onClick={() => setMobileOpen(false)}
                   className="rounded-2xl border border-slate-200 px-4 py-3 text-sm font-medium text-slate-700"
                 >
                   {label}
-                </a>
+                </Link>
               ))}
             </nav>
-            <Button as="a" href="#apply" className="w-full">
+            <Button as={Link} to="/apply" className="w-full">
               Apply Now
             </Button>
           </div>

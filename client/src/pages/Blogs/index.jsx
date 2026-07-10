@@ -1,7 +1,3 @@
-import PlaceholderPage from '@/components/common/PlaceholderPage';
-
-const Blogs = () => {
-  return <PlaceholderPage title="Blogs" description="Editorial content and updates will be connected to the blog system later." />;
-};
-
-export default Blogs;
+import {useMemo,useState} from 'react';import {Link} from 'react-router-dom';import blogs from '@/data/blogs.json';import {PageHero,SearchBox,Section} from '@/components/platform';
+const slug=x=>x.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+export default function Blogs(){const [q,setQ]=useState(''),[cat,setCat]=useState('All');const cats=['All',...new Set(blogs.map(x=>x.category))];const items=useMemo(()=>blogs.filter(x=>(cat==='All'||x.category===cat)&&x.title.toLowerCase().includes(q.toLowerCase())),[q,cat]);return <><PageHero eyebrow="MG Fina insights" title="Money guidance for real life" description="Practical perspectives on borrowing, credit, property and business growth."/><Section><div className="grid gap-4 md:grid-cols-[1fr_auto]"><SearchBox value={q} onChange={setQ} placeholder="Search articles"/><div className="flex flex-wrap gap-2">{cats.map(x=><button key={x} onClick={()=>setCat(x)} className={`rounded-full px-4 py-2 text-sm font-semibold ${cat===x?'bg-slate-900 text-white':'border border-slate-200'}`}>{x}</button>)}</div></div><div className="mt-8 grid gap-6 md:grid-cols-3">{items.map(x=><Link to={`/blogs/${slug(x.title)}`} key={x.title} className="surface-card group overflow-hidden"><div className="h-44" style={{background:`linear-gradient(135deg,${x.accent[0]},${x.accent[1]})`}}/><div className="p-6"><span className="text-xs font-bold uppercase tracking-wider text-blue-600">{x.category} · {x.date}</span><h2 className="mt-3 text-xl font-bold leading-7 group-hover:text-blue-600">{x.title}</h2><p className="mt-4 text-sm text-slate-500">5 min read</p></div></Link>)}</div></Section></>}

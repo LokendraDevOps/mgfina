@@ -1,0 +1,3 @@
+[
+ {"product":"Personal Loan","min":10.49,"max":24},{"product":"Business Loan","min":12.5,"max":25},{"product":"Home Loan","min":8.35,"max":12},{"product":"Education Loan","min":8.75,"max":14},{"product":"Car Loan","min":8.7,"max":15},{"product":"Gold Loan","min":8.9,"max":18},{"product":"Loan Against Property","min":9.5,"max":16},{"product":"Credit Card","min":24,"max":48}
+]

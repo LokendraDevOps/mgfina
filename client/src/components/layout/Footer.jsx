@@ -1,6 +1,7 @@
 import { FiMail, FiMapPin, FiPhoneCall } from 'react-icons/fi';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa6';
 import BrandLogo from '@/components/common/BrandLogo';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -28,20 +29,14 @@ const Footer = () => {
         <div>
           <h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-slate-200">Quick Links</h3>
           <div className="grid gap-3 text-sm text-slate-300">
-            <a href="#home">Home</a>
-            <a href="#loan-products">Loan Products</a>
-            <a href="#calculators">Calculators</a>
-            <a href="#blogs">Blogs</a>
+            <Link to="/">Home</Link><Link to="/loans">Loan Products</Link><Link to="/emi-calculator">Calculators</Link><Link to="/blogs">Blogs</Link>
           </div>
         </div>
 
         <div>
           <h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-slate-200">Loan Categories</h3>
           <div className="grid gap-3 text-sm text-slate-300">
-            <span>Personal Loan</span>
-            <span>Business Loan</span>
-            <span>Home Loan</span>
-            <span>Loan Against Property</span>
+            <Link to="/loans/personal-loan">Personal Loan</Link><Link to="/loans/business-loan">Business Loan</Link><Link to="/loans/home-loan">Home Loan</Link><Link to="/loans/loan-against-property">Loan Against Property</Link>
           </div>
         </div>
 
@@ -70,8 +65,7 @@ const Footer = () => {
             Disclaimer: MGFINA acts as a loan facilitation and comparison platform. Final approval is always subject to lender policy and eligibility.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a href="#home">Privacy</a>
-            <a href="#home">Terms</a>
+            <Link to="/faqs">FAQs</Link><Link to="/partners">Partners</Link>
             <span>© {new Date().getFullYear()} MGFINA Fincare Services LLP</span>
           </div>
         </div>

@@ -1,0 +1,10 @@
+[
+ {"category":"Applications","question":"How do I apply for a loan through MG Fina?","answer":"Choose a product, complete the guided application, upload the requested documents and review your details before submission."},
+ {"category":"Applications","question":"Does checking eligibility affect my credit score?","answer":"This demo checker does not access a credit bureau and has no impact on your credit score."},
+ {"category":"Eligibility","question":"What credit score is usually preferred?","answer":"Requirements vary by lender, though a score of 700 or above generally improves the range of offers available."},
+ {"category":"Eligibility","question":"Can a self-employed applicant apply?","answer":"Yes. Many products support self-employed applicants with business vintage, turnover and income documentation."},
+ {"category":"Rates & Fees","question":"Is the displayed interest rate guaranteed?","answer":"No. Displayed rates are indicative. The final rate depends on your profile, documents and the lender’s assessment."},
+ {"category":"Rates & Fees","question":"What is a processing fee?","answer":"It is a one-time charge a lender may collect to process and assess the application."},
+ {"category":"Documents","question":"Which documents are typically needed?","answer":"Most lenders request identity, address and income proof, plus product-specific property, education or business documents."},
+ {"category":"Repayment","question":"Can I prepay my loan?","answer":"Most lenders allow part-prepayment or foreclosure, subject to their terms and any applicable charges."}
+]
