@@ -1,10 +1,8 @@
 import { FiEdit3, FiLock, FiShield, FiUserPlus, FiUsers } from 'react-icons/fi';
 
 const team = [
-  { name: 'Aarav Mehta', role: 'Admin', email: 'aarav@mgfina.com', status: 'Active' },
-  { name: 'Sneha Kapoor', role: 'Manager', email: 'sneha@mgfina.com', status: 'Active' },
-  { name: 'Rohit Verma', role: 'Executive', email: 'rohit@mgfina.com', status: 'Pending' },
-  { name: 'Meera Iyer', role: 'Support', email: 'meera@mgfina.com', status: 'Active' },
+  { name: 'Superloki', role: 'Superadmin', email: 'Superloki', status: 'Active' },
+  { name: 'demo@mgfina.com', role: 'Admin', email: 'demo@mgfina.com', status: 'Active' },
 ];
 
 const Users = () => {
@@ -20,10 +18,10 @@ const Users = () => {
 
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {[
-          ['Admins', '2'],
-          ['Managers', '4'],
-          ['Executives', '18'],
-          ['Support', '6'],
+          ['Admins', '1'],
+          ['Superadmins', '1'],
+          ['Managers', '0'],
+          ['Other roles', '0'],
         ].map(([label, value]) => (
           <article key={label} className="surface-card p-5">
             <p className="text-sm text-slate-500">{label}</p>
