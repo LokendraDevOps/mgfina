@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { FiArrowRight, FiEye, FiEyeOff, FiLock, FiMail, FiShield } from 'react-icons/fi';
+import { FiArrowRight, FiLock, FiShield } from 'react-icons/fi';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import BrandLogo from '@/components/common/BrandLogo';
 import { useAuth } from '@/context/AuthContext';
@@ -19,28 +18,20 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { login } = useAuth();
-  const [showPassword, setShowPassword] = useState(false);
-  const { register, handleSubmit, setError, formState: { errors, isSubmitting } } = useForm({
-    defaultValues: { loginId: 'Superloki', password: 'Loki@321', rememberMe: true },
-  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const onSubmit = async data => {
-    const password = data.password.trim();
-
-    if (password !== SUPERADMIN.password) {
-      setError('password', { type: 'manual', message: 'Invalid superadmin credentials' });
-      return;
-    }
-
+  const onSubmit = async () => {
+    setIsSubmitting(true);
     login({
       accessToken: `access-${Date.now()}`,
       refreshToken: `refresh-${Date.now()}`,
-      rememberMe: data.rememberMe,
+      rememberMe: true,
       user: SUPERADMIN.user,
       issuedAt: Date.now(),
     });
 
     navigate(location.state?.from?.pathname || '/dashboard', { replace: true });
+    setIsSubmitting(false);
   };
 
   return (
@@ -88,62 +79,32 @@ const Login = () => {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-5">
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold">Login ID</span>
-                <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-                  <FiMail className="text-slate-400" />
-                  <input
-                    type="text"
-                    className="w-full bg-transparent outline-none"
-                    placeholder="Superloki"
-                    {...register('loginId', { required: false })}
-                  />
+            <div className="mt-8 space-y-5">
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                <div className="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                  <FiLock className="text-blue-600" />
+                  Superadmin direct login
                 </div>
-              </label>
-
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold">Password</span>
-                <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-                  <FiLock className="text-slate-400" />
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    className="w-full bg-transparent outline-none"
-                    placeholder="Loki@321"
-                    {...register('password', { required: 'Password is required' })}
-                  />
-                  <button type="button" onClick={() => setShowPassword(v => !v)} className="text-slate-500">
-                    {showPassword ? <FiEyeOff /> : <FiEye />}
-                  </button>
-                </div>
-                {errors.password && <span className="mt-1 block text-xs text-red-600">{errors.password.message}</span>}
-              </label>
-
-              <div className="flex items-center justify-between gap-4 text-sm">
-                <label className="flex items-center gap-2">
-                  <input type="checkbox" className="accent-blue-600" {...register('rememberMe')} />
-                  Remember me
-                </label>
-                <Link to="/forgot-password" className="font-semibold text-blue-600 hover:text-blue-700">
-                  Forgot password?
-                </Link>
+                <p className="mt-3 text-sm leading-6 text-slate-600">
+                  Click once to enter the workspace as Superloki. No username or password entry is required on this screen.
+                </p>
               </div>
 
               <button
-                type="submit"
+                type="button"
+                onClick={onSubmit}
                 disabled={isSubmitting}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-950 px-5 py-4 font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70"
               >
-                Enter MGFINA OS
+                Enter as Superloki
                 <FiArrowRight />
               </button>
-            </form>
+            </div>
 
             <div className="mt-8 rounded-3xl bg-slate-50 p-5">
               <p className="text-sm font-semibold text-slate-700">Demo access</p>
               <div className="mt-3 space-y-1 text-sm text-slate-600">
-                <p>Email: Superloki</p>
-                <p>Password: Loki@321</p>
+                <p>Account: Superloki</p>
                 <p>Role: Superadmin</p>
               </div>
             </div>
