@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Personal Loan",
+    "description": "Flexible unsecured funding for milestones, repairs, and urgent needs with simple repayment planning.",
+    "features": ["Fast approval", "Flexible tenure", "Digital onboarding"],
+    "accent": ["#2f63ff", "#7dd3fc"]
+  },
+  {
+    "title": "Business Loan",
+    "description": "Working capital support designed to help businesses grow, smooth cash flow, and capture new opportunities.",
+    "features": ["Business-friendly terms", "Higher ticket sizes", "Quick disbursal"],
+    "accent": ["#7c3aed", "#f472b6"]
+  },
+  {
+    "title": "Loan Against Property",
+    "description": "Use the value of your property to access structured funding for expansion, education, or debt planning.",
+    "features": ["Long repayment window", "Competitive rates", "Property-backed security"],
+    "accent": ["#0f766e", "#22d3ee"]
+  },
+  {
+    "title": "Home Loan",
+    "description": "Finance your home purchase, construction, or balance transfer with a guided and transparent process.",
+    "features": ["Transfer support", "Step-by-step guidance", "Smart EMI planning"],
+    "accent": ["#ea580c", "#fbbf24"]
+  },
+  {
+    "title": "Overdraft Facility",
+    "description": "Access a revolving credit line for cash-flow flexibility without locking into unused capital.",
+    "features": ["Pay for what you use", "Flexible repayment", "Emergency liquidity"],
+    "accent": ["#0ea5e9", "#6366f1"]
+  },
+  {
+    "title": "Balance Transfer",
+    "description": "Move existing loans to a better rate and improve monthly outflow with a cleaner EMI structure.",
+    "features": ["Lower EMI potential", "Consolidated repayment", "Smoother servicing"],
+    "accent": ["#14b8a6", "#84cc16"]
+  }
+]

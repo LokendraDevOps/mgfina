@@ -1,0 +1,8 @@
+[
+  { "name": "Mumbai", "region": "Financial hub", "accent": ["#2f63ff", "#38bdf8"] },
+  { "name": "Delhi NCR", "region": "Corporate corridor", "accent": ["#7c3aed", "#c084fc"] },
+  { "name": "Bengaluru", "region": "Tech & startup capital", "accent": ["#0f766e", "#2dd4bf"] },
+  { "name": "Hyderabad", "region": "Growth market", "accent": ["#f97316", "#fb7185"] },
+  { "name": "Pune", "region": "Emerging business zone", "accent": ["#0ea5e9", "#67e8f9"] },
+  { "name": "Ahmedabad", "region": "Commercial centre", "accent": ["#ea580c", "#facc15"] }
+]

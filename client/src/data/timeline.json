@@ -1,0 +1,6 @@
+[
+  { "title": "Share Your Need", "description": "Tell us what you want to finance and how quickly you want to move.", "icon": "01" },
+  { "title": "Review Options", "description": "We compare lenders and surface a fit that aligns with your profile.", "icon": "02" },
+  { "title": "Choose the Offer", "description": "Select a path with terms you can plan around confidently.", "icon": "03" },
+  { "title": "Apply & Track", "description": "Submit the application and follow the status through to closure.", "icon": "04" }
+]

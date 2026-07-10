@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Amit Sharma",
+    "role": "Business Owner",
+    "rating": 5,
+    "review": "MGFINA made the financing journey feel structured and transparent. The guidance was calm, practical, and easy to follow.",
+    "accent": ["#2f63ff", "#7dd3fc"]
+  },
+  {
+    "name": "Neha Verma",
+    "role": "Salaried Professional",
+    "rating": 5,
+    "review": "The team was responsive and the process felt premium from the first conversation to the final confirmation.",
+    "accent": ["#7c3aed", "#f472b6"]
+  },
+  {
+    "name": "Rahul Mehta",
+    "role": "Entrepreneur",
+    "rating": 5,
+    "review": "I liked how clearly the options were explained. It helped me choose the right loan path without pressure.",
+    "accent": ["#0ea5e9", "#22c55e"]
+  },
+  {
+    "name": "Pooja Nair",
+    "role": "Home Buyer",
+    "rating": 5,
+    "review": "The experience felt professional and trustworthy. I always knew what came next and what documents were needed.",
+    "accent": ["#ea580c", "#f59e0b"]
+  }
+]

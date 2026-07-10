@@ -1,0 +1,6 @@
+[
+  { "label": "Customers Served", "value": 25000, "suffix": "+" },
+  { "label": "Loan Amount Disbursed", "value": 1200, "suffix": " Cr+" },
+  { "label": "Applications Processed", "value": 48000, "suffix": "+" },
+  { "label": "Partner Banks", "value": 30, "suffix": "+" }
+]

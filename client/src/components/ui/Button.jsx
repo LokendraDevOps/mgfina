@@ -1,14 +1,25 @@
-const Button = ({ children, className = '', ...props }) => {
+const variants = {
+  primary:
+    'bg-slate-900 text-white shadow-lg shadow-slate-900/15 hover:-translate-y-0.5 hover:bg-slate-800',
+  secondary:
+    'border border-slate-200 bg-white text-slate-700 hover:-translate-y-0.5 hover:bg-slate-50',
+  ghost: 'bg-transparent text-slate-700 hover:bg-slate-100'
+};
+
+const Button = ({ children, className = '', variant = 'primary', as = 'button', ...props }) => {
+  const Component = as;
+
   return (
-    <button
+    <Component
       className={[
-        'inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200',
+        'inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-300',
+        variants[variant] || variants.primary,
         className
       ].join(' ')}
       {...props}
     >
       {children}
-    </button>
+    </Component>
   );
 };
 

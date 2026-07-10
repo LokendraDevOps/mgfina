@@ -1,5 +1,3 @@
-import { useTheme } from '@/context/ThemeContext';
-
 const assets = {
   colorFull: '/logo.svg',
   whiteFull: '/logo-white.png',
@@ -7,14 +5,23 @@ const assets = {
   colorIcon: '/icon-only.svg'
 };
 
-const BrandLogo = ({ variant = 'full', className = '' }) => {
-  const { isDark } = useTheme();
-  const source =
-    variant === 'icon'
-      ? assets.colorIcon
-      : isDark
-        ? assets.whiteFull
-        : assets.colorFull;
+const BrandLogo = ({ variant = 'full', tone = 'brand', className = '' }) => {
+  const sourceMap = {
+    brand: {
+      full: assets.colorFull,
+      icon: assets.colorIcon
+    },
+    light: {
+      full: assets.whiteFull,
+      icon: assets.whiteFull
+    },
+    dark: {
+      full: assets.blackFull,
+      icon: assets.colorIcon
+    }
+  };
+
+  const source = sourceMap[tone]?.[variant] || assets.colorFull;
 
   return (
     <img

@@ -1,0 +1,23 @@
+[
+  {
+    "eyebrow": "Flexible funding",
+    "title": "Finance that moves with your next milestone",
+    "description": "Borrow with clarity, compare options quickly, and choose a repayment path that feels manageable.",
+    "cta": "Explore Products",
+    "accent": ["#2f63ff", "#7dd3fc"]
+  },
+  {
+    "eyebrow": "Business growth",
+    "title": "Structured credit support for expanding enterprises",
+    "description": "Plan cash flow confidently with guided products built for operational and strategic growth.",
+    "cta": "Speak to an Expert",
+    "accent": ["#7c3aed", "#f472b6"]
+  },
+  {
+    "eyebrow": "Home finance",
+    "title": "Clean, transparent, and polished borrowing journeys",
+    "description": "A premium borrowing experience focused on speed, clarity, and confidence at every step.",
+    "cta": "Check Eligibility",
+    "accent": ["#0f766e", "#2dd4bf"]
+  }
+]
