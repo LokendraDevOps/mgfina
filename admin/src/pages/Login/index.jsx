@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { FiArrowRight, FiLock, FiShield, FiUser } from 'react-icons/fi';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import BrandLogo from '@/components/common/BrandLogo';
@@ -23,15 +24,26 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { login } = useAuth();
-  const [isSubmitting, setIsSubmitting] = useState(null);
+  const [activeAccount, setActiveAccount] = useState('superadmin');
+  const { register, handleSubmit, setError, resetField, formState: { errors, isSubmitting } } = useForm({
+    defaultValues: {
+      password: '',
+      rememberMe: true,
+    },
+  });
 
-  const directLogin = accountKey => {
-    const account = ACCOUNTS[accountKey];
-    setIsSubmitting(accountKey);
+  const account = ACCOUNTS[activeAccount];
+
+  const onSubmit = async data => {
+    if (data.password.trim() !== account.password) {
+      setError('password', { type: 'manual', message: 'Wrong password for this account' });
+      return;
+    }
+
     login({
       accessToken: `access-${Date.now()}`,
       refreshToken: `refresh-${Date.now()}`,
-      rememberMe: true,
+      rememberMe: data.rememberMe,
       user: {
         name: account.name,
         role: account.role,
@@ -41,7 +53,6 @@ const Login = () => {
     });
 
     navigate(location.state?.from?.pathname || '/dashboard', { replace: true });
-    setIsSubmitting(null);
   };
 
   return (
@@ -89,35 +100,70 @@ const Login = () => {
               </div>
             </div>
 
-            <div className="mt-8 space-y-4">
+            <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-5">
+              <div className="grid gap-3 sm:grid-cols-2">
+                {Object.entries(ACCOUNTS).map(([key, item]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    onClick={() => {
+                      setActiveAccount(key);
+                      resetField('password');
+                    }}
+                    className={`rounded-2xl border px-4 py-4 text-left transition ${
+                      activeAccount === key
+                        ? 'border-blue-500 bg-blue-50 text-slate-900'
+                        : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 text-sm font-semibold">
+                      <FiUser className={activeAccount === key ? 'text-blue-600' : 'text-slate-400'} />
+                      {item.role}
+                    </div>
+                    <p className="mt-2 text-lg font-bold">{item.name}</p>
+                  </button>
+                ))}
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Selected account</p>
+                <p className="mt-1 text-sm font-bold text-slate-900">{account.name}</p>
+                <p className="text-xs text-slate-500">{account.role}</p>
+              </div>
+
+              <label className="block">
+                <span className="mb-2 block text-sm font-semibold">Password</span>
+                <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                  <FiLock className="text-slate-400" />
+                  <input
+                    type="password"
+                    className="w-full bg-transparent outline-none"
+                    placeholder={`Enter ${account.role} password`}
+                    {...register('password', { required: 'Password is required' })}
+                  />
+                </div>
+                {errors.password && <span className="mt-1 block text-xs text-red-600">{errors.password.message}</span>}
+              </label>
+
+              <div className="flex items-center justify-between gap-4 text-sm">
+                <label className="flex items-center gap-2">
+                  <input type="checkbox" className="accent-blue-600" {...register('rememberMe')} />
+                  Remember me
+                </label>
+                <Link to="/forgot-password" className="font-semibold text-blue-600 hover:text-blue-700">
+                  Forgot password?
+                </Link>
+              </div>
+
               <button
-                type="button"
-                onClick={() => directLogin('superadmin')}
+                type="submit"
                 disabled={isSubmitting}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-950 px-5 py-4 font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70"
               >
-                Enter as Superloki
+                Enter as {account.name}
                 <FiArrowRight />
               </button>
-
-              <button
-                type="button"
-                onClick={() => directLogin('admin')}
-                disabled={isSubmitting}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 font-semibold text-slate-900 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-70"
-              >
-                Enter as demo
-                <FiUser />
-              </button>
-            </div>
-
-            <div className="mt-8 rounded-3xl bg-slate-50 p-5">
-              <p className="text-sm font-semibold text-slate-700">Direct login accounts</p>
-              <div className="mt-3 space-y-1 text-sm text-slate-600">
-                <p>Superadmin: Superloki / Loki@321</p>
-                <p>Admin: demo / Demo@321</p>
-              </div>
-            </div>
+            </form>
           </section>
         </div>
       </div>
