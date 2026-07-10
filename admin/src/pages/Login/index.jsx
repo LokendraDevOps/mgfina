@@ -5,10 +5,14 @@ import { useNavigate, Link, useLocation } from 'react-router-dom';
 import BrandLogo from '@/components/common/BrandLogo';
 import { useAuth } from '@/context/AuthContext';
 
-const demoUser = {
-  name: 'Aarav Mehta',
-  role: 'Chief Growth Officer',
-  email: 'aarav@mgfina.com'
+const SUPERADMIN = {
+  email: 'Superloki',
+  password: 'Loki@321',
+  user: {
+    name: 'Superloki',
+    role: 'Superadmin',
+    email: 'Superloki'
+  }
 };
 
 const Login = () => {
@@ -16,16 +20,24 @@ const Login = () => {
   const location = useLocation();
   const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
-    defaultValues: { email: 'admin@mgfina.com', password: 'Admin@123', rememberMe: true },
+  const { register, handleSubmit, setError, formState: { errors, isSubmitting } } = useForm({
+    defaultValues: { email: 'Superloki', password: 'Loki@321', rememberMe: true },
   });
 
   const onSubmit = async data => {
+    const email = data.email.trim();
+    const password = data.password.trim();
+
+    if (email !== SUPERADMIN.email || password !== SUPERADMIN.password) {
+      setError('password', { type: 'manual', message: 'Invalid superadmin credentials' });
+      return;
+    }
+
     login({
       accessToken: `access-${Date.now()}`,
       refreshToken: `refresh-${Date.now()}`,
       rememberMe: data.rememberMe,
-      user: demoUser,
+      user: SUPERADMIN.user,
       issuedAt: Date.now(),
     });
 
@@ -85,7 +97,7 @@ const Login = () => {
                   <input
                     type="email"
                     className="w-full bg-transparent outline-none"
-                    placeholder="admin@mgfina.com"
+                    placeholder="Superloki"
                     {...register('email', { required: 'Email is required' })}
                   />
                 </div>
@@ -99,7 +111,7 @@ const Login = () => {
                   <input
                     type={showPassword ? 'text' : 'password'}
                     className="w-full bg-transparent outline-none"
-                    placeholder="••••••••"
+                    placeholder="Loki@321"
                     {...register('password', { required: 'Password is required' })}
                   />
                   <button type="button" onClick={() => setShowPassword(v => !v)} className="text-slate-500">
@@ -132,9 +144,9 @@ const Login = () => {
             <div className="mt-8 rounded-3xl bg-slate-50 p-5">
               <p className="text-sm font-semibold text-slate-700">Demo access</p>
               <div className="mt-3 space-y-1 text-sm text-slate-600">
-                <p>Email: admin@mgfina.com</p>
-                <p>Password: Admin@123</p>
-                <p>Role: {demoUser.role}</p>
+                <p>Email: Superloki</p>
+                <p>Password: Loki@321</p>
+                <p>Role: Superadmin</p>
               </div>
             </div>
           </section>
