@@ -1,4 +1,4 @@
 export const STORAGE_KEYS = {
-  token: 'shree-ashaa-admin-token',
+  auth: 'mgfina-admin-auth',
   theme: 'shree-ashaa-admin-theme'
 };
