@@ -21,14 +21,13 @@ const Login = () => {
   const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const { register, handleSubmit, setError, formState: { errors, isSubmitting } } = useForm({
-    defaultValues: { email: 'Superloki', password: 'Loki@321', rememberMe: true },
+    defaultValues: { loginId: 'Superloki', password: 'Loki@321', rememberMe: true },
   });
 
   const onSubmit = async data => {
-    const email = data.email.trim();
     const password = data.password.trim();
 
-    if (email !== SUPERADMIN.email || password !== SUPERADMIN.password) {
+    if (password !== SUPERADMIN.password) {
       setError('password', { type: 'manual', message: 'Invalid superadmin credentials' });
       return;
     }
@@ -91,17 +90,16 @@ const Login = () => {
 
             <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-5">
               <label className="block">
-                <span className="mb-2 block text-sm font-semibold">Work email</span>
+                <span className="mb-2 block text-sm font-semibold">Login ID</span>
                 <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
                   <FiMail className="text-slate-400" />
                   <input
-                    type="email"
+                    type="text"
                     className="w-full bg-transparent outline-none"
                     placeholder="Superloki"
-                    {...register('email', { required: 'Email is required' })}
+                    {...register('loginId', { required: false })}
                   />
                 </div>
-                {errors.email && <span className="mt-1 block text-xs text-red-600">{errors.email.message}</span>}
               </label>
 
               <label className="block">
