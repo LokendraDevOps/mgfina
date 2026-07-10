@@ -1,46 +1,47 @@
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { FiArrowRight, FiEye, FiEyeOff, FiLock, FiMail, FiShield } from 'react-icons/fi';
+import { FiArrowRight, FiLock, FiShield, FiUser } from 'react-icons/fi';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import BrandLogo from '@/components/common/BrandLogo';
 import { useAuth } from '@/context/AuthContext';
 
-const SUPERADMIN = {
-  email: 'Superloki',
-  password: 'Loki@321',
-  user: {
+const ACCOUNTS = {
+  superadmin: {
     name: 'Superloki',
     role: 'Superadmin',
-    email: 'Superloki'
-  }
+    loginId: 'Superloki',
+    password: 'Loki@321',
+  },
+  admin: {
+    name: 'demo',
+    role: 'Admin',
+    loginId: 'demo',
+    password: 'Demo@321',
+  },
 };
 
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { login } = useAuth();
-  const [showPassword, setShowPassword] = useState(false);
-  const { register, handleSubmit, setError, formState: { errors, isSubmitting } } = useForm({
-    defaultValues: { loginId: 'Superloki', password: 'Loki@321', rememberMe: true },
-  });
+  const [isSubmitting, setIsSubmitting] = useState(null);
 
-  const onSubmit = async data => {
-    const password = data.password.trim();
-
-    if (password !== SUPERADMIN.password) {
-      setError('password', { type: 'manual', message: 'Invalid superadmin credentials' });
-      return;
-    }
-
+  const directLogin = accountKey => {
+    const account = ACCOUNTS[accountKey];
+    setIsSubmitting(accountKey);
     login({
       accessToken: `access-${Date.now()}`,
       refreshToken: `refresh-${Date.now()}`,
-      rememberMe: data.rememberMe,
-      user: SUPERADMIN.user,
+      rememberMe: true,
+      user: {
+        name: account.name,
+        role: account.role,
+        email: account.loginId,
+      },
       issuedAt: Date.now(),
     });
 
     navigate(location.state?.from?.pathname || '/dashboard', { replace: true });
+    setIsSubmitting(null);
   };
 
   return (
@@ -88,56 +89,35 @@ const Login = () => {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-5">
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold">Login ID</span>
-                <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-                  <FiMail className="text-slate-400" />
-                  <input
-                    type="text"
-                    className="w-full bg-transparent outline-none"
-                    placeholder="Superloki"
-                    {...register('loginId', { required: false })}
-                  />
-                </div>
-              </label>
-
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold">Password</span>
-                <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-                  <FiLock className="text-slate-400" />
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    className="w-full bg-transparent outline-none"
-                    placeholder="Loki@321"
-                    {...register('password', { required: 'Password is required' })}
-                  />
-                  <button type="button" onClick={() => setShowPassword(v => !v)} className="text-slate-500">
-                    {showPassword ? <FiEyeOff /> : <FiEye />}
-                  </button>
-                </div>
-                {errors.password && <span className="mt-1 block text-xs text-red-600">{errors.password.message}</span>}
-              </label>
-
-              <div className="flex items-center justify-between gap-4 text-sm">
-                <label className="flex items-center gap-2">
-                  <input type="checkbox" className="accent-blue-600" {...register('rememberMe')} />
-                  Remember me
-                </label>
-                <Link to="/forgot-password" className="font-semibold text-blue-600 hover:text-blue-700">
-                  Forgot password?
-                </Link>
-              </div>
-
+            <div className="mt-8 space-y-4">
               <button
-                type="submit"
+                type="button"
+                onClick={() => directLogin('superadmin')}
                 disabled={isSubmitting}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-950 px-5 py-4 font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70"
               >
-                Enter MGFINA OS
+                Enter as Superloki
                 <FiArrowRight />
               </button>
-            </form>
+
+              <button
+                type="button"
+                onClick={() => directLogin('admin')}
+                disabled={isSubmitting}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 font-semibold text-slate-900 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-70"
+              >
+                Enter as demo
+                <FiUser />
+              </button>
+            </div>
+
+            <div className="mt-8 rounded-3xl bg-slate-50 p-5">
+              <p className="text-sm font-semibold text-slate-700">Direct login accounts</p>
+              <div className="mt-3 space-y-1 text-sm text-slate-600">
+                <p>Superadmin: Superloki / Loki@321</p>
+                <p>Admin: demo / Demo@321</p>
+              </div>
+            </div>
           </section>
         </div>
       </div>
