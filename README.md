@@ -1,4 +1,4 @@
-# Shree Ashaa Reality
+# MGFINA Fincare Services LLP
 
 Production-ready Phase 1 foundation for a MERN application with separate `client`, `admin`, and `server` apps.
 

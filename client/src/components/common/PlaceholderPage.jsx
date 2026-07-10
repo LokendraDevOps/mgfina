@@ -3,7 +3,7 @@ const PlaceholderPage = ({ title, description }) => {
     <section className="page-shell">
       <div className="surface-card flex min-h-[320px] flex-col items-start justify-center gap-4 p-8">
         <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
-          Shree Ashaa Reality
+          MGFINA Fincare Services LLP
         </span>
         <div className="space-y-2">
           <h1 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
