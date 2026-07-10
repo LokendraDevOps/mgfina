@@ -53,6 +53,14 @@ const AdminTopbar = () => {
           >
             {isDark ? <FiSun /> : <FiMoon />}
           </button>
+          <button
+            type="button"
+            onClick={logout}
+            className="hidden items-center gap-2 rounded-full border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700 transition hover:bg-red-100 lg:inline-flex dark:border-red-900/40 dark:bg-red-950/40 dark:text-red-300 dark:hover:bg-red-950/70"
+          >
+            <FiLogOut />
+            Logout
+          </button>
           <div className="relative">
             <button
               type="button"
