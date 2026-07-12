@@ -447,6 +447,13 @@ RULE 25
 FINAL RULE
 =========================================================
 
+RULE 26
+
+Never create standalone button styles.
+
+Always reuse the project's existing Button component or design system.
+
+If a reusable Button already exists, use it instead of writing new button CSS.
 Whenever there is uncertainty
 
 Never assume.
