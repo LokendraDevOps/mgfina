@@ -137,10 +137,10 @@ const Hero = () => {
               </div>
 
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Button as="a" href="#eligibility" className="rounded-full bg-white px-6 py-4 text-sm font-semibold text-slate-950 hover:bg-slate-100">
+                <Button as="a" href="#eligibility" className="rounded-full px-6 py-4 text-sm font-semibold">
                   Check My Eligibility <FiArrowRight />
                 </Button>
-                <Button as="a" href="#calculators" variant="secondary" className="rounded-full border border-white/15 bg-white/5 px-6 py-4 text-sm font-semibold text-white hover:bg-white/10">
+                <Button as="a" href="#calculators" variant="glass" className="rounded-full px-6 py-4 text-sm font-semibold">
                   Calculate My New EMI
                 </Button>
               </div>
@@ -210,7 +210,7 @@ const Hero = () => {
                     <StatCard label="Approval Probability" value="92%" />
                   </div>
 
-                  <Button className="mt-5 w-full rounded-full bg-white px-5 py-4 font-semibold text-slate-950 hover:bg-slate-100">
+                  <Button className="mt-5 w-full rounded-full px-5 py-4 font-semibold">
                     Generate My Smart Plan
                   </Button>
                 </div>
