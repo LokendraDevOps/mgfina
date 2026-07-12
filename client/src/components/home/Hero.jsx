@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { FiArrowRight, FiShield, FiZap, FiStar } from 'react-icons/fi';
 import Button from '@/components/ui/Button';
 
@@ -51,20 +50,6 @@ const Hero = ({ stats }) => {
               Check EMI Preview <FiZap />
             </Button>
           </div>
-
-          <Link
-            to="/loans/debt-consolidation-loan"
-            className="group inline-flex w-full max-w-xl items-center justify-between gap-4 rounded-[1.5rem] border border-cyan-300/20 bg-cyan-400/10 px-5 py-4 text-left shadow-[0_20px_60px_-30px_rgba(34,211,238,0.5)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-cyan-400/15"
-          >
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.3em] text-cyan-200">Featured product</p>
-              <p className="mt-2 text-lg font-semibold text-white">Debt Consolidation Loan</p>
-              <p className="mt-1 text-sm text-slate-300">Turn multiple EMIs into one smart financial plan.</p>
-            </div>
-            <span className="grid h-12 w-12 place-items-center rounded-full bg-white text-slate-950 transition group-hover:translate-x-1">
-              <FiArrowRight />
-            </span>
-          </Link>
 
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {stats.map((stat) => (
