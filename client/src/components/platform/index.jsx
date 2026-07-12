@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FiArrowRight, FiCheck, FiChevronDown, FiSearch, FiUploadCloud } from 'react-icons/fi';
 import Button from '@/components/ui/Button';
+import BankLogo from '@/components/common/BankLogo';
 
 export const PageHero = ({ eyebrow, title, description, children }) => (
   <section className="relative overflow-hidden bg-slate-950 py-20 text-white sm:py-28">
@@ -43,4 +44,4 @@ export const FAQComponent = ({ items }) => { const [open, setOpen] = useState(0)
 
 export const SuccessCard = ({ title = 'Application submitted', description = 'Your details have been saved for this demo.' }) => <motion.div initial={{ scale: .94, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="py-10 text-center"><span className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-emerald-100 text-3xl text-emerald-600"><FiCheck/></span><h2 className="mt-6 text-3xl font-bold">{title}</h2><p className="mx-auto mt-3 max-w-md text-slate-600">{description}</p><Button as="a" href="/" className="mt-7">Back to home <FiArrowRight/></Button></motion.div>;
 
-export const BankCard = ({ bank }) => <motion.article whileHover={{ y: -5 }} className="surface-card flex h-28 items-center justify-center p-6"><div className="flex h-full w-full items-center justify-center rounded-2xl border border-slate-200 bg-white/80 px-4 py-3"><img src={bank.logo} alt={bank.logoAlt || bank.name} className="max-h-12 w-full object-contain grayscale transition duration-300 hover:grayscale-0" loading="lazy"/></div></motion.article>;
+export const BankCard = ({ bank }) => <motion.article whileHover={{ y: -5 }} className="surface-card flex h-28 items-center justify-center p-6"><div className="flex h-full w-full items-center justify-center rounded-2xl border border-slate-200 bg-white/80 px-4 py-3"><BankLogo name={bank.name} className="max-h-12 w-full grayscale transition duration-300 hover:grayscale-0" /></div></motion.article>;

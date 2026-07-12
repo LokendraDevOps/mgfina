@@ -1,10 +1,10 @@
 [
-  { "name": "Axis Finance", "tone": ["#2f63ff", "#62b2ff"] },
-  { "name": "IDFC First Bank", "tone": ["#7c3aed", "#d946ef"] },
-  { "name": "Bajaj Finserv", "tone": ["#0f172a", "#64748b"] },
-  { "name": "Yes Bank", "tone": ["#0ea5e9", "#22c55e"] },
-  { "name": "Tata Capital", "tone": ["#ef4444", "#fb7185"] },
-  { "name": "Kotak Mahindra", "tone": ["#4f46e5", "#a78bfa"] },
-  { "name": "ICICI Bank", "tone": ["#f97316", "#f59e0b"] },
-  { "name": "L&T Finance", "tone": ["#10b981", "#34d399"] }
+  { "name": "HDFC Bank", "tone": ["#2f63ff", "#62b2ff"] },
+  { "name": "ICICI Bank", "tone": ["#7c3aed", "#d946ef"] },
+  { "name": "State Bank of India", "tone": ["#0f172a", "#64748b"] },
+  { "name": "Axis Bank", "tone": ["#0ea5e9", "#22c55e"] },
+  { "name": "Punjab National Bank", "tone": ["#ef4444", "#fb7185"] },
+  { "name": "Canara Bank", "tone": ["#4f46e5", "#a78bfa"] },
+  { "name": "Union Bank of India", "tone": ["#f97316", "#f59e0b"] },
+  { "name": "IDFC FIRST Bank", "tone": ["#10b981", "#34d399"] }
 ]

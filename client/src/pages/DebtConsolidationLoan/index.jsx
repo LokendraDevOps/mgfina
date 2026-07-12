@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiCheck, FiChevronDown, FiCreditCard, FiPieChart, FiShield, FiStar } from 'react-icons/fi';
+import BankLogo from '@/components/common/BankLogo';
 import Button from '@/components/ui/Button';
-import banks from '@/data/banks.json';
-
-const bankLogos = banks.map(bank => bank.short || bank.name.split(' ').map(x => x[0]).join('').slice(0, 3));
+import { bankLogoEntries } from '@/constants/bankLogos';
 
 const benefits = ['One Smart EMI', 'Better Cash Flow', 'Organized Repayment', 'Potential Savings', 'Better Planning', 'Digital Journey'];
 const documents = ['PAN', 'Aadhaar', 'Income Proof', 'Bank Statement', 'Existing Loan Details'];
@@ -338,9 +337,9 @@ const DebtConsolidationLoan = () => {
               transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
               className="flex w-max gap-4"
             >
-              {[...bankLogos, ...bankLogos, ...bankLogos].map((logo, index) => (
-                <div key={`${logo}-${index}`} className="group flex h-20 w-44 items-center justify-center rounded-3xl border border-white/10 bg-slate-950/60 grayscale transition duration-300 hover:grayscale-0 hover:border-cyan-300/30 hover:bg-white/10">
-                  <span className="text-xl font-black tracking-[0.2em] text-slate-300 transition group-hover:text-white">{logo}</span>
+              {[...bankLogoEntries, ...bankLogoEntries, ...bankLogoEntries].map((logo, index) => (
+                <div key={`${logo.name}-${index}`} className="group flex h-20 w-44 items-center justify-center rounded-3xl border border-white/10 bg-slate-950/60 grayscale transition duration-300 hover:grayscale-0 hover:border-cyan-300/30 hover:bg-white/10">
+                  <BankLogo name={logo.name} className="max-h-10 w-full max-w-28" />
                 </div>
               ))}
             </motion.div>
