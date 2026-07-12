@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Hero from '@/components/home/Hero';
+import FinancialHealthScore from '@/components/home/FinancialHealthScore';
+import SmartBorrowingCapacity from '@/components/home/SmartBorrowingCapacity';
 import Counter from '@/components/home/Counter';
 import PartnerSlider from '@/components/home/PartnerSlider';
 import PromoSlider from '@/components/home/PromoSlider';
@@ -65,6 +67,8 @@ const Home = () => {
   return (
     <main className="bg-slate-50 text-slate-900">
       <Hero stats={stats} />
+      <FinancialHealthScore />
+      <SmartBorrowingCapacity />
       <PartnerSlider partners={partners} />
 
       <section className="bg-white">
