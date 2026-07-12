@@ -19,11 +19,11 @@ const BlogCard = ({ blog }) => {
     >
       <img src={image} alt={blog.title} className="h-48 w-full object-cover" loading="lazy" />
       <div className="p-6">
-        <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+        <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-slate-700">
           {blog.category}
         </span>
         <h3 className="mt-4 text-xl font-semibold text-slate-950">{blog.title}</h3>
-        <p className="mt-3 text-sm text-slate-500">{blog.date}</p>
+        <p className="mt-3 text-sm text-slate-600">{blog.date}</p>
         <Button as="a" href="#home" variant="secondary" className="mt-6 w-full">
           Read More <FiArrowRight />
         </Button>

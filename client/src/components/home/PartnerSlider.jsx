@@ -16,7 +16,7 @@ const PartnerSlider = ({ partners }) => {
   return (
     <section className="overflow-hidden border-y border-slate-200 bg-white">
       <div className="page-shell py-8">
-        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">
+        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.35em] text-slate-700">
           Trusted banking partners
         </p>
         <div className="mask-marquee">
@@ -32,7 +32,7 @@ const PartnerSlider = ({ partners }) => {
               >
                 <div>
                   <p className="text-sm font-semibold text-slate-900">{partner.name}</p>
-                  <p className="mt-1 text-xs text-slate-500">Banking partner</p>
+                  <p className="mt-1 text-xs text-slate-600">Banking partner</p>
                 </div>
                 <div className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${palette[index % palette.length]}`} />
               </div>

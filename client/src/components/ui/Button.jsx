@@ -2,8 +2,8 @@ const variants = {
   primary:
     'bg-slate-900 text-white shadow-lg shadow-slate-900/15 hover:-translate-y-0.5 hover:bg-slate-800',
   secondary:
-    'border border-slate-300 bg-white text-slate-800 hover:-translate-y-0.5 hover:bg-slate-50',
-  ghost: 'bg-transparent text-slate-800 hover:bg-slate-100'
+    'border border-slate-300 bg-white text-slate-900 hover:-translate-y-0.5 hover:bg-slate-50',
+  ghost: 'bg-transparent text-slate-900 hover:bg-slate-100'
 };
 
 const Button = ({ children, className = '', variant = 'primary', as = 'button', ...props }) => {
