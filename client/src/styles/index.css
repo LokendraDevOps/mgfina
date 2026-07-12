@@ -30,7 +30,7 @@
   }
 
   .surface-card {
-    @apply rounded-2xl border border-slate-200 bg-white/90 shadow-soft backdrop-blur;
+    @apply rounded-2xl border border-slate-200 bg-white/90 text-slate-900 shadow-soft backdrop-blur;
   }
 
   .mask-marquee {

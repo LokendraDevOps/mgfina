@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { FiArrowRight, FiCheck, FiChevronDown, FiCreditCard, FiPieChart, FiShield, FiStar } from 'react-icons/fi';
 import Button from '@/components/ui/Button';
 import banks from '@/data/banks.json';
