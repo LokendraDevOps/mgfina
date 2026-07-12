@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import Hero from '@/components/home/Hero';
 import FinancialHealthScore from '@/components/home/FinancialHealthScore';
 import SmartBorrowingCapacity from '@/components/home/SmartBorrowingCapacity';
@@ -15,6 +14,17 @@ import ReviewCarousel from '@/components/home/ReviewCarousel';
 import BlogCard from '@/components/home/BlogCard';
 import CTASection from '@/components/home/CTASection';
 import SectionTitle from '@/components/home/SectionTitle';
+import { BankCard } from '@/components/platform';
+import hdfcLogo from '@/assets/banks/HDFC Bank Logo.svg';
+import iciciLogo from '@/assets/banks/ICICI Bank Logo.svg';
+import sbiLogo from '@/assets/banks/SBI-logo.svg';
+import axisLogo from '@/assets/banks/Axis Bank logo.svg';
+import pnbLogo from '@/assets/banks/Punjab National Bank new logo.svg';
+import canaraLogo from '@/assets/banks/Canara Bank Logo.svg';
+import unionLogo from '@/assets/banks/Union Bank of India Logo.svg';
+import idfcLogo from '@/assets/banks/Logo of IDFC First Bank.svg';
+import bobLogo from '@/assets/banks/Bank of Baroda Logo since Dec 19.png';
+import mahindraLogo from '@/assets/banks/Mahindra Finance SVG Logo.svg';
 import stats from '@/data/stats.json';
 import partners from '@/data/partners.json';
 import loanProducts from '@/data/loanProducts.json';
@@ -43,12 +53,86 @@ const calculatorCards = [
 ];
 
 const bankPartners = [
-  { name: 'Axis Finance', detail: 'Retail & business credit', toneClass: 'from-sky-500 to-cyan-400' },
-  { name: 'IDFC First Bank', detail: 'Flexible lending solutions', toneClass: 'from-violet-500 to-fuchsia-400' },
-  { name: 'Bajaj Finserv', detail: 'Consumer finance products', toneClass: 'from-emerald-500 to-teal-400' },
-  { name: 'Kotak Mahindra', detail: 'Structured banking support', toneClass: 'from-orange-500 to-amber-400' },
-  { name: 'ICICI Bank', detail: 'Large-ticket lending', toneClass: 'from-cyan-500 to-sky-400' },
-  { name: 'L&T Finance', detail: 'Asset and mortgage finance', toneClass: 'from-indigo-500 to-violet-400' }
+  {
+    name: 'HDFC Bank',
+    logo: hdfcLogo,
+    logoAlt: 'HDFC Bank logo',
+    rating: '4.9',
+    benefit: 'Premium lending and account-linked offers',
+    products: ['Personal Loan', 'Home Loan', 'Credit Card']
+  },
+  {
+    name: 'ICICI Bank',
+    logo: iciciLogo,
+    logoAlt: 'ICICI Bank logo',
+    rating: '4.8',
+    benefit: 'Fast digital borrowing journeys',
+    products: ['Personal Loan', 'Car Loan', 'Credit Card']
+  },
+  {
+    name: 'State Bank of India',
+    logo: sbiLogo,
+    logoAlt: 'State Bank of India logo',
+    rating: '4.7',
+    benefit: 'Wide branch network and trusted lending',
+    products: ['Home Loan', 'Education Loan', 'Gold Loan']
+  },
+  {
+    name: 'Axis Bank',
+    logo: axisLogo,
+    logoAlt: 'Axis Bank logo',
+    rating: '4.7',
+    benefit: 'Convenient retail and business loans',
+    products: ['Personal Loan', 'Business Loan', 'Credit Card']
+  },
+  {
+    name: 'Punjab National Bank',
+    logo: pnbLogo,
+    logoAlt: 'Punjab National Bank logo',
+    rating: '4.6',
+    benefit: 'Public sector lending with broad reach',
+    products: ['Home Loan', 'Car Loan', 'Education Loan']
+  },
+  {
+    name: 'Canara Bank',
+    logo: canaraLogo,
+    logoAlt: 'Canara Bank logo',
+    rating: '4.6',
+    benefit: 'Stable banking support for multiple needs',
+    products: ['Home Loan', 'Gold Loan', 'Personal Loan']
+  },
+  {
+    name: 'Union Bank of India',
+    logo: unionLogo,
+    logoAlt: 'Union Bank of India logo',
+    rating: '4.5',
+    benefit: 'Balanced lending across loan categories',
+    products: ['Home Loan', 'Business Loan', 'Car Loan']
+  },
+  {
+    name: 'IDFC FIRST Bank',
+    logo: idfcLogo,
+    logoAlt: 'IDFC FIRST Bank logo',
+    rating: '4.8',
+    benefit: 'Digital-first lending and premium service',
+    products: ['Personal Loan', 'Credit Card', 'Business Loan']
+  },
+  {
+    name: 'Mahindra Finance',
+    logo: mahindraLogo,
+    logoAlt: 'Mahindra Finance logo',
+    rating: '4.6',
+    benefit: 'NBFC financing built for retail needs',
+    products: ['Two Wheeler Loan', 'Business Loan', 'Personal Loan']
+  },
+  {
+    name: 'Bank of Baroda',
+    logo: bobLogo,
+    logoAlt: 'Bank of Baroda logo',
+    rating: '4.5',
+    benefit: 'Public sector lender with wide retail coverage',
+    products: ['Home Loan', 'Car Loan', 'Personal Loan']
+  }
 ];
 
 const Home = () => {
@@ -138,17 +222,7 @@ const Home = () => {
           />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {bankPartners.map((partner) => (
-              <motion.article
-                key={partner.name}
-                whileHover={{ y: -5 }}
-                className="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-[0_20px_60px_-34px_rgba(15,23,42,0.18)]"
-              >
-                <div className={`h-32 bg-gradient-to-br ${partner.toneClass}`} />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-slate-950">{partner.name}</h3>
-                  <p className="mt-2 text-sm text-slate-600">{partner.detail}</p>
-                </div>
-              </motion.article>
+              <BankCard key={partner.name} bank={partner} />
             ))}
           </div>
         </div>
